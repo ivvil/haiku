@@ -64,7 +64,7 @@ in {
 
         follow_mouse = 1;
         mouse_refocus = false;
-        kb_options = caps:super, shift:both_capslock;
+        kb_options = ["caps:super" "shift:both_capslock"];
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
