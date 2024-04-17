@@ -37,6 +37,7 @@
     git
     wget
     discord
+    webcord
   ];
 
   # services

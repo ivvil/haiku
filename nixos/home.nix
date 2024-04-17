@@ -1,12 +1,13 @@
 {config, ...}: {
   imports = [
-    ../home-manager/nvim.nix
+    # ../home-manager/nvim.nix
     ../home-manager/ags.nix
     ../home-manager/blackbox.nix
     ../home-manager/browser.nix
     # ../home-manager/bspwm.nix
     ../home-manager/dconf.nix
     ../home-manager/distrobox.nix
+    ../home-manager/emacs.nix
     ../home-manager/git.nix
     # ../home-manager/helix.nix
     ../home-manager/hyprland.nix
