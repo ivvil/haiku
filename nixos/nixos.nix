@@ -36,6 +36,7 @@
     neovim
     git
     wget
+    discord
   ];
 
   # services

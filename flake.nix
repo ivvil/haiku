@@ -1,5 +1,5 @@
 {
-  description = "Configurations of Aylur";
+  description = "Haiku; ivvil's NixOS config";
 
   outputs = inputs @ {
     self,
@@ -18,9 +18,9 @@
 
     # nixos config
     nixosConfigurations = {
-      "nixos" = let
-        hostname = "nixos";
-        username = "demeter";
+      "aceso" = let
+        hostname = "aceso";
+        username = "ivvil";
       in
         nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
@@ -64,7 +64,7 @@
     # macos
     darwinConfigurations = {
       "macos" = let
-        username = "demeter";
+        username = "ivvil";
       in
         nix-darwin.lib.darwinSystem {
           modules = [
