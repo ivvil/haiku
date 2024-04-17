@@ -1,26 +1,26 @@
-{ inputs, pkgs, ... }:
-let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
 
-  launcher = pkgs.writeShellScriptBin "hypr" ''
-    #!/${pkgs.bash}/bin/bash
-
-    export WLR_NO_HARDWARE_CURSORS=1
-    export _JAVA_AWT_WM_NONREPARENTING=1
-
-    exec ${hyprland}/bin/Hyprland
+  yt = pkgs.writeShellScript "yt" ''
+    notify-send "Opening video" "$(wl-paste)"
+    mpv "$(wl-paste)"
   '';
-in
-{
-  home.packages = [ launcher ];
 
+  playerctl = "${pkgs.playerctl}/bin/playerctl";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  pactl = "${pkgs.pulseaudio}/bin/pactl";
+in {
   xdg.desktopEntries."org.gnome.Settings" = {
     name = "Settings";
     comment = "Gnome Control Center";
     icon = "org.gnome.Settings";
     exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
-    categories = [ "X-Preferences" ];
+    categories = ["X-Preferences"];
     terminal = false;
   };
 
@@ -29,7 +29,11 @@ in
     package = hyprland;
     systemd.enable = true;
     xwayland.enable = true;
-    # plugins = with plugins; [ hyprbars borderspp ];
+    plugins = with plugins; [
+      hyprexpo
+      # hyprbars
+      # borderspp
+    ];
 
     settings = {
       exec-once = [
@@ -46,17 +50,18 @@ in
       general = {
         layout = "dwindle";
         resize_on_border = true;
+        no_cursor_warps = true;
       };
 
       misc = {
-        layers_hog_keyboard_focus = false;
         disable_splash_rendering = true;
-        force_default_wallpaper = 0;
+        force_default_wallpaper = 1;
       };
 
       input = {
         kb_layout = "es";
         kb_model = "";
+
         follow_mouse = 1;
         mouse_refocus = false;
         kb_options = caps:super, shift:both_capslock;
@@ -88,19 +93,19 @@ in
       windowrule = let
         f = regex: "float, ^(${regex})$";
       in [
-		(f "org.gnome.Calculator")
-		(f "org.gnome.Nautilus")
-		(f "pavucontrol")
-		(f "nm-connection-editor")
-		(f "blueberry.py")
-		(f "org.gnome.Settings")
-		(f "org.gnome.design.Palette")
-		(f "Color Picker")
-		(f "xdg-desktop-portal")
-		(f "xdg-desktop-portal-gnome")
-		(f "transmission-gtk")
-		(f "com.github.Aylur.ags")
-		"workspace 7, title:Spotify"
+        (f "org.gnome.Calculator")
+        (f "org.gnome.Nautilus")
+        (f "pavucontrol")
+        (f "nm-connection-editor")
+        (f "blueberry.py")
+        (f "org.gnome.Settings")
+        (f "org.gnome.design.Palette")
+        (f "Color Picker")
+        (f "xdg-desktop-portal")
+        (f "xdg-desktop-portal-gnome")
+        (f "transmission-gtk")
+        (f "com.github.Aylur.ags")
+        "workspace 7, title:Spotify"
       ];
 
       bind = let
@@ -112,69 +117,68 @@ in
         mvtows = binding "SUPER SHIFT" "movetoworkspace";
         e = "exec, ags -b hypr";
         arr = [1 2 3 4 5 6 7 8 9];
-        yt = pkgs.writeShellScriptBin "yt" ''
-            notify-send "Opening video" "$(wl-paste)"
-            mpv "$(wl-paste)"
-        '';
-      in [
-        "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
-        "SUPER, R,       ${e} -t applauncher"
-        ", XF86PowerOff, ${e} -t powermenu"
-        "SUPER, Tab,     ${e} -t overview"
-        ", XF86Launch4,  ${e} -r 'recorder.start()'"
-        ",Print,         ${e} -r 'recorder.screenshot()'"
-        "SHIFT,Print,    ${e} -r 'recorder.screenshot(true)'"
-        "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
-        "SUPER, W, exec, firefox"
-        "SUPER, E, exec, wezterm -e lf"
+      in
+        [
+          "CTRL SHIFT, R,  ${e} quit; ags -b hypr"
+          "SUPER, R,       ${e} -t launcher"
+          "SUPER, Tab,     ${e} -t overview"
+          ",XF86PowerOff,  ${e} -r 'powermenu.shutdown()'"
+          ",XF86Launch4,   ${e} -r 'recorder.start()'"
+          ",Print,         ${e} -r 'recorder.screenshot()'"
+          "SHIFT,Print,    ${e} -r 'recorder.screenshot(true)'"
+          "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
+          "SUPER, W, exec, firefox"
+          "SUPER, E, exec, wezterm -e lf"
 
-        # youtube
-        ", XF86Launch1,  exec, ${yt}/bin/yt"
+          # youtube
+          ", XF86Launch1,  exec, ${yt}"
 
-        "ALT, Tab, focuscurrentorlast"
-        "CTRL ALT, Delete, exit"
-        "ALT, Q, killactive"
-        "SUPER, F, togglefloating"
-        "SUPER, G, fullscreen"
-        "SUPER, O, fakefullscreen"
-        "SUPER, P, togglesplit"
+          "ALT, Tab, focuscurrentorlast"
+          "CTRL ALT, Delete, exit"
+          "ALT, Q, killactive"
+          "SUPER, F, togglefloating"
+          "SUPER, G, fullscreen"
+          "SUPER, O, fakefullscreen"
+          "SUPER, P, togglesplit"
 
-        (mvfocus "k" "u")
-        (mvfocus "j" "d")
-        (mvfocus "l" "r")
-        (mvfocus "h" "l")
-        (ws "left" "e-1")
-        (ws "right" "e+1")
-        (mvtows "left" "e-1")
-        (mvtows "right" "e+1")
-        (resizeactive "k" "0 -20")
-        (resizeactive "j" "0 20")
-        (resizeactive "l" "20 0")
-        (resizeactive "h" "-20 0")
-        (mvactive "k" "0 -20")
-        (mvactive "j" "0 20")
-        (mvactive "l" "20 0")
-        (mvactive "h" "-20 0")
-      ]
-      ++ (map (i: ws (toString i) (toString i)) arr)
-      ++ (map (i: mvtows (toString i) (toString i)) arr);
+          "SUPER, space, hyprexpo:expo, toggle"
 
-      bindle = let e = "exec, ags -b hypr -r"; in [
-        ",XF86MonBrightnessUp,   ${e} 'brightness.screen += 0.05; indicator.display()'"
-        ",XF86MonBrightnessDown, ${e} 'brightness.screen -= 0.05; indicator.display()'"
-        ",XF86KbdBrightnessUp,   ${e} 'brightness.kbd++; indicator.kbd()'"
-        ",XF86KbdBrightnessDown, ${e} 'brightness.kbd--; indicator.kbd()'"
-        ",XF86AudioRaiseVolume,  ${e} 'audio.speaker.volume += 0.05; indicator.speaker()'"
-        ",XF86AudioLowerVolume,  ${e} 'audio.speaker.volume -= 0.05; indicator.speaker()'"
+          (mvfocus "k" "u")
+          (mvfocus "j" "d")
+          (mvfocus "l" "r")
+          (mvfocus "h" "l")
+          (ws "left" "e-1")
+          (ws "right" "e+1")
+          (mvtows "left" "e-1")
+          (mvtows "right" "e+1")
+          (resizeactive "k" "0 -20")
+          (resizeactive "j" "0 20")
+          (resizeactive "l" "20 0")
+          (resizeactive "h" "-20 0")
+          (mvactive "k" "0 -20")
+          (mvactive "j" "0 20")
+          (mvactive "l" "20 0")
+          (mvactive "h" "-20 0")
+        ]
+        ++ (map (i: ws (toString i) (toString i)) arr)
+        ++ (map (i: mvtows (toString i) (toString i)) arr);
+
+      bindle = [
+        ",XF86MonBrightnessUp,   exec, ${brightnessctl} set +5%"
+        ",XF86MonBrightnessDown, exec, ${brightnessctl} set  5%-"
+        ",XF86KbdBrightnessUp,   exec, ${brightnessctl} -d asus::kbd_backlight set +1"
+        ",XF86KbdBrightnessDown, exec, ${brightnessctl} -d asus::kbd_backlight set  1-"
+        ",XF86AudioRaiseVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
+        ",XF86AudioLowerVolume,  exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
       ];
 
-      bindl = let e = "exec, ags -b hypr -r"; in [
-        ",XF86AudioPlay,    ${e} 'mpris?.playPause()'"
-        ",XF86AudioStop,    ${e} 'mpris?.stop()'"
-        ",XF86AudioPause,   ${e} 'mpris?.pause()'"
-        ",XF86AudioPrev,    ${e} 'mpris?.previous()'"
-        ",XF86AudioNext,    ${e} 'mpris?.next()'"
-        ",XF86AudioMicMute, ${e} 'audio.microphone.isMuted = !audio.microphone.isMuted'"
+      bindl = [
+        ",XF86AudioPlay,    exec, ${playerctl} play-pause"
+        ",XF86AudioStop,    exec, ${playerctl} pause"
+        ",XF86AudioPause,   exec, ${playerctl} pause"
+        ",XF86AudioPrev,    exec, ${playerctl} previous"
+        ",XF86AudioNext,    exec, ${playerctl} next"
+        ",XF86AudioMicMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle"
       ];
 
       bindm = [
@@ -198,6 +202,7 @@ in
           noise = 0.01;
           contrast = 0.9;
           brightness = 0.8;
+          popups = true;
         };
       };
 
@@ -214,6 +219,15 @@ in
       };
 
       plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 5;
+          bg_col = "rgb(232323)";
+          workspace_method = "center current";
+          enable_gesture = true;
+          gesture_distance = 300;
+          gesture_positive = false;
+        };
         hyprbars = {
           bar_color = "rgb(2a2a2a)";
           bar_height = 28;

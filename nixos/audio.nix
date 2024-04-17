@@ -9,17 +9,14 @@
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;
-  };
-
-  environment.etc = {
-    "pipewire/pipewire.conf.d/92-low-latency.conf".text = ''
-      context.properties = {
-        default.clock.rate = 44100
-        default.clock.quantum = 512
-        default.clock.min-quantum = 512
-        default.clock.max-quantum = 512
-      }
-    '';
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 44100;
+        "default.clock.quantum" = 512;
+        "default.clock.min-quantum" = 512;
+        "default.clock.max-quantum" = 512;
+      };
+    };
   };
 
   services.udev.extraRules = ''
@@ -28,9 +25,29 @@
   '';
 
   security.pam.loginLimits = [
-    { domain = "@audio"; item = "memlock"; type = "-"   ; value = "unlimited"; }
-    { domain = "@audio"; item = "rtprio" ; type = "-"   ; value = "99"       ; }
-    { domain = "@audio"; item = "nofile" ; type = "soft"; value = "99999"    ; }
-    { domain = "@audio"; item = "nofile" ; type = "hard"; value = "524288"    ; }
+    {
+      domain = "@audio";
+      item = "memlock";
+      type = "-";
+      value = "unlimited";
+    }
+    {
+      domain = "@audio";
+      item = "rtprio";
+      type = "-";
+      value = "99";
+    }
+    {
+      domain = "@audio";
+      item = "nofile";
+      type = "soft";
+      value = "99999";
+    }
+    {
+      domain = "@audio";
+      item = "nofile";
+      type = "hard";
+      value = "524288";
+    }
   ];
 }

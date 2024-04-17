@@ -3,31 +3,37 @@
 
 return {
     {
+        "williamboman/mason.nvim",
+        enabled = io.open("/run/.containerenv", "r") ~= nil,
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             { "nushell/tree-sitter-nu" },
         },
         opts = {
             ensure_installed = {
-                "bash",
-                "nix",
-                "nu",
-
-                "html",
-                "javascript",
-                "jsdoc",
-                "svelte",
-                "scss",
-                "css",
-
                 "lua",
-                "luadoc",
-                "luap",
+                "nix",
 
-                "query",
-                "regex",
-                "vim",
-                "vimdoc",
+                -- "bash",
+                -- "nu",
+                --
+                -- "javascript",
+                -- "jsdoc",
+                -- "html",
+                -- "scss",
+                -- "css",
+                -- "svelte",
+                --
+                -- "luadoc",
+                -- "luap",
+                -- "query",
+                -- "regex",
+                -- "vim",
+                -- "vimdoc",
+                --
+                -- "gleam"
             },
         },
     },
@@ -35,15 +41,25 @@ return {
         "neovim/nvim-lspconfig",
         opts = {
             servers = {
+                nil_ls = {},
+                lua_ls = {},
+
                 bashls = {},
+                nushell = {},
+
                 cssls = {},
                 eslint = {},
                 stylelint_lsp = {},
                 html = {},
+
                 svelte = {},
-                nil_ls = {},
-                lua_ls = {},
-                nushell = {},
+                astro = {},
+                denols = {},
+                gleam = {},
+
+                tsserver = {
+                    root_dir = require("lspconfig").util.root_pattern("package.json"),
+                },
             },
         },
     },

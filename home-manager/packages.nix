@@ -1,5 +1,10 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
+  imports = [
+    ./scripts/blocks.nix
+    ./scripts/nx-switch.nix
+    ./scripts/vault.nix
+  ];
+
   xdg.desktopEntries = {
     "lf" = {
       name = "lf";
@@ -7,75 +12,47 @@
     };
   };
 
-  home.packages = with pkgs; with nodePackages_latest; with gnome; [
-    sway
-    # colorscript
-    (import ./colorscript.nix { inherit pkgs; })
-
+  home.packages = with pkgs; with gnome; [
     # gui
     obsidian
-    (mpv.override { scripts = [mpvScripts.mpris]; })
+    (mpv.override {scripts = [mpvScripts.mpris];})
     libreoffice
     spotify
     caprine-bin
     d-spy
-    easyeffects
     github-desktop
     gimp
     transmission_4-gtk
     discord
-    bottles
     teams-for-linux
     icon-library
     dconf-editor
-    figma-linux
+    gnome-secrets
+
+    # langs
+    poetry
+    nodejs
+    yarn
+    go
 
     # tools
+    steam-run # fhs envs
     bat
     eza
     fd
     ripgrep
     fzf
-    socat
-    jq
-    acpi
-    inotify-tools
-    ffmpeg
     libnotify
     killall
     zip
     unzip
     glib
 
-    # hyprland
-    wl-gammactl
-    wl-clipboard
-    wf-recorder
-    hyprpicker
-    wayshot
-    swappy
-    slurp
-    imagemagick
-    pavucontrol
-    brightnessctl
-    swww
-
     # fun
     glow
     slides
-    skate
     yabridge
     yabridgectl
     wine-staging
-    distrobox
-
-    # langs
-    nodejs
-    cargo
-    bun
-    go
-    gcc
-    typescript
-    eslint
   ];
 }

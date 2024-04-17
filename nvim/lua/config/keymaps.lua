@@ -1,5 +1,7 @@
 local km = vim.keymap.set
 
+km("n", "Q", "@q")
+
 -- Telescope
 km("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "[F]ind in file using Telescope" })
 km("n", "<C-f>", function()
@@ -27,6 +29,9 @@ km("n", "<C-q>", function() vim.cmd("bw"); end, { desc = "Close Buffer" })
 -- selection
 km("n", "<C-a>", "ggVG")
 km("v", "V", "j")
+
+-- paste
+km("n", "<leader>p", "\"_dP")
 
 -- colors
 km("n", "<leader>cc", vim.cmd.ColorizerToggle, { desc = "[C]olorizer" })
