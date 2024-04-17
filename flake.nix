@@ -18,7 +18,7 @@
 
     # nixos config
     nixosConfigurations = {
-      "aceso" = let
+      "nixos" = let
         hostname = "aceso";
         username = "ivvil";
       in
