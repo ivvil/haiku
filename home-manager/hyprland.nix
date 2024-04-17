@@ -39,9 +39,8 @@ in
       ];
 
       monitor = [
-        # "eDP-1, 1920x1080, 0x0, 1"
-        # "HDMI-A-1, 2560x1440, 1920x0, 1"
-        ",preferred,auto,1"
+        "HDMI-A-1,1920x1080@75,0x0,1"
+        "DVI-D-1,1920x1080@60,1920x0,1"
       ];
 
       general = {
@@ -56,9 +55,11 @@ in
       };
 
       input = {
-        kb_layout = "hu";
-        kb_model = "pc104";
+        kb_layout = "es";
+        kb_model = "";
         follow_mouse = 1;
+        mouse_refocus = false;
+        kb_options = caps:super, shift:both_capslock;
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
