@@ -128,25 +128,4 @@
       flake = false;
     };
   };
-  outputs = { home-manager, nixpkgs, ... }@inputs:
-  let
-    username = "ivvil";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-  in
-  {
-    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs username system; };
-      modules = [ ./nixos/configuration.nix ];
-    };
-
-    homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = { inherit inputs username; };
-      modules = [ ./home-manager/home.nix ];
-    };
-  };
 }
