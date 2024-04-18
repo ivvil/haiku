@@ -7,6 +7,7 @@
     ./hyprland.nix
     # ./laptop.nix
     ./nvidia.nix
+    ./disks.nix
   ];
 
   # nix
