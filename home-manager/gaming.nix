@@ -4,6 +4,6 @@
     steam
     mangohud
     r2modman
-    heroic-unwrapped
+    heroic
   ];
 }
