@@ -1,12 +1,12 @@
 let
-  email = "demstof@gmail.com";
-  name = "Aylur";
+  email = "ivvil412@gmail.com";
+  name = "Iván Villagrasa";
 in {
   programs.git = {
     enable = true;
     extraConfig = {
       color.ui = true;
-      core.editor = "nvim";
+      core.editor = "emacs";
       credential.helper = "store";
       github.user = name;
       push.autoSetupRemote = true;
