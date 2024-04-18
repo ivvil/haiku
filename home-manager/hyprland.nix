@@ -39,7 +39,6 @@ in {
       exec-once = [
         "ags -b hypr"
         "hyprctl setcursor Qogir 24"
-        "transmission-gtk"
       ];
 
       monitor = [
@@ -61,10 +60,10 @@ in {
       input = {
         kb_layout = "es";
         kb_model = "";
+        kb_options = "shift:both_capslock, caps:super";
 
         follow_mouse = 1;
         mouse_refocus = false;
-        kb_options = ["caps:super" "shift:both_capslock"];
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
@@ -87,7 +86,6 @@ in {
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;
-        workspace_swipe_numbered = true;
       };
 
       windowrule = let
