@@ -5,5 +5,6 @@
     mangohud
     r2modman
     heroic
+    prismlauncher
   ];
 }

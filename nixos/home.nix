@@ -6,6 +6,7 @@
     ../home-manager/browser.nix
     # ../home-manager/bspwm.nix
     ../home-manager/dconf.nix
+    ../home-manager/dev.nix
     ../home-manager/distrobox.nix
     ../home-manager/emacs.nix
     ../home-manager/gaming.nix
@@ -57,8 +58,9 @@
     "file://${home}/Desktop"
     "file://${home}/Work"
     "file://${home}/Projects"
+    "file://${home}/Programs"
     "file://${home}/Vault"
-    "file://${home}/School"
+    "file://${home}/Documents/DAW"
     "file://${home}/.config Config"
   ];
 

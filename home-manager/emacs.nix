@@ -14,4 +14,9 @@
     enable = true;
     package = pkgs.emacs29-pgtk;
   };
+
+    home.packages = with pkgs; [
+      cmake
+      nil
+  ];
 }

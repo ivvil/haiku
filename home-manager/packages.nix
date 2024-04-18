@@ -14,7 +14,6 @@
 
   home.packages = with pkgs; with gnome; [
     # gui
-    obsidian
     (mpv.override {scripts = [mpvScripts.mpris];})
     libreoffice
     spotify
@@ -24,7 +23,6 @@
     gimp
     transmission_4-gtk
     discord
-    teams-for-linux
     icon-library
     dconf-editor
     gnome-secrets

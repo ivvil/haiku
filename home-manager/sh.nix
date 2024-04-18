@@ -6,7 +6,10 @@
   shellAliases = {
     "db" = "distrobox";
     "tree" = "eza --tree";
-    "nv" = "nvim";
+    "n" = "nano";
+    "em" = "emacs";
+
+    "sv" = "systemctl";
 
     "ll" = "ls";
     "éé" = "ls";
@@ -58,7 +61,7 @@ in {
         PROMPT_COMMAND_RIGHT = ''""'';
         NIXPKGS_ALLOW_UNFREE = "1";
         NIXPKGS_ALLOW_INSECURE = "1";
-        SHELL = ''"${pkgs.nushell}/bin/nu"'';
+        SHELL = ''"${pkgs.zsh}/bin/zsh"'';
         EDITOR = "emacs";
         VISUAL = "emacs";
       };
