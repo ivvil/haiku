@@ -6,6 +6,7 @@
     # ./gnome.nix
     ./hyprland.nix
     # ./laptop.nix
+    ./nvidia.nix
   ];
 
   # nix
