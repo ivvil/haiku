@@ -16,6 +16,7 @@
     ../home-manager/packages.nix
     ../home-manager/sh.nix
     ../home-manager/starship.nix
+    ../home-manager/steam.nix
     ../home-manager/stm.nix
     # ../home-manager/sway.nix
     ../home-manager/theme.nix
