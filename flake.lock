@@ -36,22 +36,6 @@
         "type": "github"
       }
     },
-    "emacs-config": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710845642,
-        "narHash": "sha256-slXrGJsBHYxnjXFIqtevly34Xo2Az414jiHO/XPxHw8=",
-        "owner": "ivvil",
-        "repo": "Emacs_config",
-        "rev": "4010af3fdfd6d60ef0dd7901fa4bc4e168f86943",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ivvil",
-        "repo": "Emacs_config",
-        "type": "github"
-      }
-    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -75,11 +59,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1713294767,
-        "narHash": "sha256-LmaabaQZdx52MPGKPRt9Opoc9Gd9RbwvCdysUUYQoXI=",
+        "lastModified": 1713391096,
+        "narHash": "sha256-5xkzsy+ILgQlmvDDipL5xqAehnjWBenAQXV4/NLg2dE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fa8c16e2452bf092ac76f09ee1fb1e9f7d0796e7",
+        "rev": "f46814ec7cbef9c2aef18ca1cbe89f2bb1e8c394",
         "type": "github"
       },
       "original": {
@@ -369,7 +353,6 @@
       "inputs": {
         "ags": "ags",
         "astal": "astal",
-        "emacs-config": "emacs-config",
         "firefox-gnome-theme": "firefox-gnome-theme",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

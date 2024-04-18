@@ -1,14 +1,17 @@
-{inputs, pkgs, ...}: {
+{inputs, lib, pkgs, ...}: {
         home = {
-                file."emacs-config" = {
-                        target = ".emacs.d";
-                        source = inputs.emacs-config;
-                };
-        };
+                # file."emacs-config" = {
+                #         target = ".emacs.d";
+                #         source = inputs.emacs-config;
+                # };	
+		sessionVariables = {
+			EDITROR = "emacs";
+			VISUAL = "emacs";
+		};
+	};
 
-        services.emacs = {
+        programs.emacs = {
                 enable = true;
                 package = pkgs.emacs-gtk;
-                defaultEditor = true;
-        }
+        };
 }
