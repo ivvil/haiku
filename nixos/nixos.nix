@@ -17,6 +17,9 @@
     auto-optimise-store = true;
   };
 
+  # Force electron apps to use ozone platform
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # camera
   programs.droidcam.enable = true;
 
