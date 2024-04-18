@@ -106,5 +106,7 @@
     };
   };
 
+  hardware.steam-hardware.enable = true; # For steam controller
+
   system.stateVersion = "23.05";
 }
