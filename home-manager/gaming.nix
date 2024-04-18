@@ -2,5 +2,8 @@
 {
   home.packages = with pkgs; [
     steam
+    mangohud
+    r2modman
+    heroic-unwrapped
   ];
 }

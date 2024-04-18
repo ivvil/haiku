@@ -7,7 +7,8 @@
       package = pkgs.steam.override { withJava = true; };
     };
     
-    java.enable = true; 
+    java.enable = true;
+    gamemode.enable = true;
   };
 
 

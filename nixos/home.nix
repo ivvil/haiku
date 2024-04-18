@@ -8,6 +8,7 @@
     ../home-manager/dconf.nix
     ../home-manager/distrobox.nix
     ../home-manager/emacs.nix
+    ../home-manager/gaming.nix
     ../home-manager/git.nix
     # ../home-manager/helix.nix
     ../home-manager/hyprland.nix
@@ -16,7 +17,6 @@
     ../home-manager/packages.nix
     ../home-manager/sh.nix
     ../home-manager/starship.nix
-    ../home-manager/steam.nix
     ../home-manager/stm.nix
     # ../home-manager/sway.nix
     ../home-manager/theme.nix
