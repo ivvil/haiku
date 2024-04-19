@@ -9,6 +9,7 @@
     ./nvidia.nix
     ./disks.nix
     ./steam.nix
+    ./video.nix
   ];
 
   # nix
