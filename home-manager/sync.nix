@@ -1,0 +1,3 @@
+{
+  services.syncthig.enable = true;
+}

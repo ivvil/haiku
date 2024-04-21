@@ -41,6 +41,8 @@ in {
         "hyprctl setcursor Qogir 24"
       ];
 
+      # env = [ "HYPRCURSOR_THEME,Hypr-Posy" ];
+
       monitor = [
         "HDMI-A-1,1920x1080@75,0x0,1"
         "DVI-D-1,1920x1080@60,1920x0,1"
@@ -145,10 +147,10 @@ in {
           (mvfocus "j" "d")
           (mvfocus "l" "r")
           (mvfocus "h" "l")
-          (ws "left" "e-1")
-          (ws "right" "e+1")
-          (mvtows "left" "e-1")
-          (mvtows "right" "e+1")
+          (ws "a" "-1")
+          (ws "d" "+1")
+          (mvtows "a" "-1")
+          (mvtows "d" "+1")
           (resizeactive "k" "0 -20")
           (resizeactive "j" "0 20")
           (resizeactive "l" "20 0")

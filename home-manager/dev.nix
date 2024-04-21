@@ -7,5 +7,6 @@
     gnumake
     direnv
     ccls
+    sbcl
   ];
 }
