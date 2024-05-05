@@ -45,6 +45,7 @@
                   "docker"
                   "scanner"
                   "lp"
+                  "user-with-access-to-virtualbox"
                 ];
               };
               networking.hostName = hostname;

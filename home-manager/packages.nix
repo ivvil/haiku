@@ -37,7 +37,7 @@
 
     # tools
     steam-run # fhs envs
-    bat
+    bat 
     eza
     fd
     ripgrep

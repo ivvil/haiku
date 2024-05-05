@@ -11,6 +11,7 @@
     ./steam.nix
     ./sync.nix
     ./video.nix
+    ./virtualisation.nix
   ];
 
   # nix
