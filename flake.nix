@@ -43,6 +43,8 @@
                   "video"
                   "libvirtd"
                   "docker"
+                  "scanner"
+                  "lp"
                 ];
               };
               networking.hostName = hostname;

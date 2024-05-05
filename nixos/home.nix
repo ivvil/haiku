@@ -51,24 +51,24 @@
   gtk.gtk3.bookmarks = let
     home = config.home.homeDirectory;
   in [
-    "file://${home}/Documents"
-    "file://${home}/Music"
-    "file://${home}/Pictures"
-    "file://${home}/Videos"
-    "file://${home}/Downloads"
-    "file://${home}/Desktop"
-    "file://${home}/Work"
     "file://${home}/Projects"
     "file://${home}/Programs"
-    "file://${home}/Vault"
     "file://${home}/Documents/DAW"
-    "file://${home}/.config Config"
   ];
 
   services = {
     kdeconnect = {
       enable = true;
       indicator = true;
+    };
+  };
+
+  # XDG dirs
+  xdg = {
+    enable = true;
+    userDirs = {
+      enable = true;
+      createDirectories = true;
     };
   };
 

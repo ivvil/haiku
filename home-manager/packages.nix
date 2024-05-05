@@ -21,11 +21,13 @@
     d-spy
     github-desktop
     gimp
-    transmission_4-gtk
+    fragments
     discord
+    vesktop
     icon-library
     dconf-editor
     gnome-secrets
+    gnome.simple-scan
 
     # langs
     poetry
@@ -45,6 +47,9 @@
     zip
     unzip
     glib
+    tor-browser
+    inkscape-with-extensions
+    zathura
 
     # fun
     glow

@@ -9,6 +9,7 @@
     ./nvidia.nix
     ./disks.nix
     ./steam.nix
+    ./sync.nix
     ./video.nix
   ];
 
@@ -26,6 +27,9 @@
   # camera
   programs.droidcam.enable = true;
 
+  # ld
+  programs.nix-ld.enable = true;
+
   # virtualisation
   programs.virt-manager.enable = true;
   virtualisation = {
@@ -33,6 +37,10 @@
     docker.enable = true;
     libvirtd.enable = true;
   };
+
+  # SANE
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   # dconf
   programs.dconf.enable = true;
@@ -43,8 +51,6 @@
     neovim
     git
     wget
-    discord
-    webcord
   ];
 
   # services

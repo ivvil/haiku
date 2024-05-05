@@ -41,11 +41,12 @@ in {
         "hyprctl setcursor Qogir 24"
       ];
 
-      # env = [ "HYPRCURSOR_THEME,Hypr-Posy" ];
+      env = "XCURSOE_THEME,Qogir";
 
       monitor = [
         "HDMI-A-1,1920x1080@75,0x0,1"
         "DVI-D-1,1920x1080@60,1920x0,1"
+        "Unknown-1, disable"
       ];
 
       general = {

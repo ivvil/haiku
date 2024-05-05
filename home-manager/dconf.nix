@@ -128,7 +128,7 @@ with lib.hm.gvariant; {
     };
 
     "system/locale" = {
-      region = "hu_HU.UTF-8";
+      region = "es_ES.UTF-8";
     };
 
     "com/github/stunkymonkey/nautilus-open-any-terminal" = {

@@ -6,5 +6,6 @@
     r2modman
     heroic
     prismlauncher
+    bottles
   ];
 }

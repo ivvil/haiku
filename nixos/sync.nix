@@ -2,7 +2,7 @@
   services.syncthing = {
     enable = true;
     user = "ivvil";
-    settings.gui.password = "55Gg9900";
+    settings.gui.password = "passwd";
     settings.gui.user = "ivvil";
     configDir = "/home/ivvil/.config/syncthing";
     overrideDevices = true;     # overrides any devices added or deleted through the WebUI
@@ -14,15 +14,19 @@
     settings.folders = {
       "Música" = {
         id = "4p5d7-3lrzm";
-        path = "/home/ivvil/Música";
+        path = "/home/ivvil/Music";
         devices = [ "abas" "castor" ];
       };
 
       "KeePass" = {
         id = "ax5hy-303pk";
-        path = "/home/ivvil/Documentos/KeePass";
+        path = "/home/ivvil/Documents/KeePass";
         devices = [ "abas" "castor" ];        
       };
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+
 }
