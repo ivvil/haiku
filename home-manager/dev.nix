@@ -14,5 +14,6 @@
     marksman
     texlive.combined.scheme-full
     python311Packages.pygments
+    vscode
   ];
 }

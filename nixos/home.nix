@@ -24,6 +24,7 @@
     ../home-manager/theme.nix
     ../home-manager/tmux.nix
     ../home-manager/wezterm.nix
+    ../home-manager/spicetify.nix
   ];
 
   news.display = "show";

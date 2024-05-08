@@ -100,6 +100,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -111,13 +112,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
 
-    matugen.url = "github:InioX/matugen";
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
     ags.url = "github:Aylur/ags";
     astal.url = "github:Aylur/astal";
     stm.url = "github:Aylur/stm";

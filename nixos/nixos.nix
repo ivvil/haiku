@@ -7,6 +7,7 @@
     ./hyprland.nix
     # ./laptop.nix
     ./nvidia.nix
+    ./printing.nix
     ./disks.nix
     ./steam.nix
     ./sync.nix
