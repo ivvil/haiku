@@ -1,10 +1,15 @@
-{config, ...}:
+{config, inputs, pkgs, ...}:
+let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   # Enable OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    package = pkgs-unstable.mesa.drivers;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
   };
 
   # Load nvidia driver for Xorg and Wayland

@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, pkgs, ...}: {
   imports = [
     # ../home-manager/nvim.nix
     ../home-manager/ags.nix

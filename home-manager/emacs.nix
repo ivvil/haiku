@@ -1,4 +1,8 @@
-{inputs, lib, pkgs, ...}: {
+{inputs, lib, pkgs, ...}:
+let
+  emacsPkg = inputs.emacs-overlay.packages.${pkgs.system}.emacs-pgtk;
+in
+{
   home = {
     # file."emacs-config" = {
     #         target = ".emacs.d";
@@ -12,14 +16,16 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29-pgtk;
+    package = emacsPkg;
   };
 
-    home.packages = with pkgs; [
+  home.packages = with pkgs; [
       nil
       (aspellWithDicts (dicts: with dicts; [ en en-computers en-science es ]))
       ghostscript
       mupdf
+      texlab
+      omnisharp-roslyn
       texlab
   ];
 }

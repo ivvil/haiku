@@ -58,5 +58,7 @@
     yabridge
     yabridgectl
     wine-staging
+    ascii-draw
+    ani-cli
   ];
 }

@@ -3,10 +3,10 @@
 
   outputs = inputs @ {
     self,
-    home-manager,
-    nix-darwin,
-    nixpkgs,
-    ...
+      home-manager,
+      nix-darwin,
+      nixpkgs,
+      ...
   }: {
     formatter = {
       x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
@@ -15,6 +15,8 @@
 
     packages.x86_64-linux.default =
       nixpkgs.legacyPackages.x86_64-linux.callPackage ./ags {inherit inputs;};
+
+    nixpkgs.overlays = [ (import self.inputs.emacs-overlay) ];
 
     # nixos config
     nixosConfigurations = {
@@ -112,7 +114,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland = {
+      url = "git+https://github.com/andresilva/Hyprland?ref=nix-build-improvements&submodules=1";
+    };
+    
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
@@ -131,5 +136,23 @@
       url = "github:rafaelmardojai/firefox-gnome-theme";
       flake = false;
     };
+    
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

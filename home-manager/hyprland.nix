@@ -30,7 +30,7 @@ in {
     systemd.enable = true;
     xwayland.enable = true;
     plugins = with plugins; [
-      hyprexpo
+      # hyprexpo
       # hyprbars
       # borderspp
     ];
@@ -52,7 +52,7 @@ in {
       general = {
         layout = "dwindle";
         resize_on_border = true;
-        no_cursor_warps = true;
+        # no_cursor_warps = true;
       };
 
       misc = {
@@ -142,7 +142,7 @@ in {
           "SUPER, O, fakefullscreen"
           "SUPER, P, togglesplit"
 
-          "SUPER, space, hyprexpo:expo, toggle"
+          # "SUPER, space, hyprexpo:expo, toggle"
 
           (mvfocus "k" "u")
           (mvfocus "j" "d")
