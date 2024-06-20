@@ -1,4 +1,4 @@
-{pkgs, spicetify-nix, lib, ...}:
+{pkgs, spicetify-nix, ...}:
 let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;   
 in

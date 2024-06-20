@@ -1,9 +1,9 @@
-{lib, ...}:
+{lib, pkgs, ...}:
 with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      sources = [(mkTuple ["xkb" "hu"])];
-      xkb-options = ["terminate:ctrl_alt_bksp"];
+      sources = [(mkTuple ["xkb" "es"])];
+      xkb-options = [ "terminate:ctrl_alt_bksp" "caps:super" "shift:both_capslock" ];
     };
 
     "org/gnome/desktop/interface" = {
@@ -40,6 +40,10 @@ with lib.hm.gvariant; {
 
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Alt>q"];
+      move-to-workspace-left = ["<Shift><Super>a"];
+      move-to-workspace-right = ["<Shift><Super>d"];
+      switch-to-workspace-left = ["<Super>a"];
+      switch-to-workspace-right = ["<Super>d"];
       move-to-workspace-1 = ["<Shift><Super>1"];
       move-to-workspace-2 = ["<Shift><Super>2"];
       move-to-workspace-3 = ["<Shift><Super>3"];
@@ -69,10 +73,9 @@ with lib.hm.gvariant; {
     };
 
     "org/gnome/mutter" = {
-      dynamic-workspaces = false;
+      dynamic-workspaces = true;
       edge-tiling = true;
-      num-workspaces = 5;
-      workspaces-only-on-primary = true;
+      workspaces-only-on-primary = false;
     };
 
     "org/gnome/settings-daemon/plugins/media-keys" = {
@@ -110,12 +113,16 @@ with lib.hm.gvariant; {
         "org.gnome.Calendar.desktop"
         "obsidian.desktop"
         "transmission-gtk.desktop"
-        "caprine.desktop"
-        "teams-for-linux.desktop"
         "discord.desktop"
         "spotify.desktop"
         "com.usebottles.bottles.desktop"
         "org.gnome.Software.desktop"
+      ];
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        blur-my-shell.extensionUuid
+        gsconnect.extensionUuid
+        places-status-indicator.extensionUuid
       ];
     };
 
@@ -132,7 +139,7 @@ with lib.hm.gvariant; {
     };
 
     "com/github/stunkymonkey/nautilus-open-any-terminal" = {
-      terminal = "wezterm";
+      terminal = "blackbox";
     };
 
     "org/virt-manager/virt-manager/connections" = {

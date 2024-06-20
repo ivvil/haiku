@@ -37,12 +37,12 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       initExtra = ''
-        SHELL=${pkgs.zsh}/bin/zsh
-        zstyle ':completion:*' menu select
-        bindkey "^[[1;5C" forward-word
-        bindkey "^[[1;5D" backward-word
-        unsetopt BEEP
-      '';
+        SHELL=${pkgs.zsh}/bin/zsh '';
+      #   zstyle ':completion:*' menu select
+      #   bindkey "^[[1;5C" forward-word
+      #   bindkey "^[[1;5D" backward-word
+      #   unsetopt BEEP
+      # '';
     };
 
     bash = {

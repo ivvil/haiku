@@ -3,8 +3,8 @@
     /etc/nixos/hardware-configuration.nix
     ./audio.nix
     ./locale.nix
-    # ./gnome.nix
-    ./hyprland.nix
+    ./gnome.nix
+    # ./hyprland.nix
     # ./laptop.nix
     ./nvidia.nix
     ./printing.nix

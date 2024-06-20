@@ -12,19 +12,19 @@
     ../home-manager/gaming.nix
     ../home-manager/git.nix
     # ../home-manager/helix.nix
-    ../home-manager/hyprland.nix
+    # ../home-manager/hyprland.nix
     ../home-manager/lf.nix
     ../home-manager/neofetch.nix
     ../home-manager/obs.nix
     ../home-manager/packages.nix
     ../home-manager/sh.nix
+    # ../home-manager/spotify.nix
     ../home-manager/starship.nix
     ../home-manager/stm.nix
     # ../home-manager/sway.nix
     ../home-manager/theme.nix
     ../home-manager/tmux.nix
     ../home-manager/wezterm.nix
-    ../home-manager/spicetify.nix
   ];
 
   news.display = "show";

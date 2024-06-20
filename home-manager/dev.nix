@@ -1,7 +1,7 @@
 {pkgs, ...}:
 {
   home.packages = with pkgs; [
-    jetbrains.idea-community
+    jetbrains.idea-community-bin
     cmake
     libtool
     gnumake

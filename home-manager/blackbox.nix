@@ -46,7 +46,7 @@ in {
 
   dconf.settings."com/raggesilver/BlackBox" = {
     command-as-login-shell = true;
-    custom-shell-command = "${pkgs.tmux}/bin/tmux";
+    custom-shell-command = "${pkgs.zsh}/bin/zsh";
     use-custom-command = true;
     font = "CaskaydiaCove Nerd Font 12";
     fill-tabs = true;

@@ -32,10 +32,10 @@
       };
     };
 
-    chromium = {
-      enable = true;
-      extensions = [ "cjpalhdlnbpafiamejdnhcphjbkeiagm"]; # Ublock
-      package = pkgs.ungoogled-chromium;
-    };
+    # chromium = {
+    #   enable = true;
+    #   extensions = [ "cjpalhdlnbpafiamejdnhcphjbkeiagm"]; # Ublock
+    #   package = pkgs.ungoogled-chromium;
+    # };
   };
 }

@@ -7,5 +7,7 @@
     heroic
     prismlauncher
     bottles
+    lutris
+    airshipper
   ];
 }

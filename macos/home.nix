@@ -12,7 +12,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    SHELL = "${pkgs.nushell}/bin/nu";
+    SHELL = "${pkgs.zsg}/bin/zsh";
   };
 
   xdg = {
