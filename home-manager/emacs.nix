@@ -27,5 +27,6 @@ in
       texlab
       omnisharp-roslyn
       texlab
+      python3
   ];
 }

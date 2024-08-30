@@ -11,6 +11,7 @@
   programs= {
     firefox = {
       enable = true;
+      package = pkgs.firefox-bin;
       profiles.default = {
         name = "Default";
         settings = {
@@ -32,10 +33,10 @@
       };
     };
 
-    # chromium = {
-    #   enable = true;
-    #   extensions = [ "cjpalhdlnbpafiamejdnhcphjbkeiagm"]; # Ublock
-    #   package = pkgs.ungoogled-chromium;
-    # };
+    chromium = {
+      enable = true;
+      extensions = [ "cjpalhdlnbpafiamejdnhcphjbkeiagm"]; # Ublock
+      package = pkgs.ungoogled-chromium;
+    };
   };
 }

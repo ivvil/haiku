@@ -4,10 +4,9 @@ let
 in
 {
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
     package = pkgs-unstable.mesa.drivers;
     package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
   };

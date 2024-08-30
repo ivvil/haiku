@@ -28,7 +28,7 @@
     icon-library
     dconf-editor
     gnome-secrets
-    gnome.simple-scan
+    simple-scan
 
     # langs
     poetry
@@ -51,6 +51,8 @@
     tor-browser
     inkscape-with-extensions
     zathura
+    coppwr
+    gnome-firmware
 
     # fun
     glow
@@ -60,5 +62,7 @@
     wine-staging
     ascii-draw
     ani-cli
+    lollypop
+    zed-editor
   ];
 }

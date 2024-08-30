@@ -6,7 +6,7 @@ in {
   home = {
     packages = with pkgs; [
       blackbox-terminal
-      # xterm
+      xterm
     ];
     sessionVariables.TERMINAL = "blackbox";
   };
@@ -50,7 +50,7 @@ in {
     use-custom-command = true;
     font = "CaskaydiaCove Nerd Font 12";
     fill-tabs = true;
-    show-headerbar = false;
+    show-headerbar = true;
     pretty = true;
     theme-light = "Adwaita";
     theme-dark = "Charmful";

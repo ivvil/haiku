@@ -11,7 +11,7 @@
   };
   services.printing = {
     enable = true;
-    drivers = [ pkgs.hplip ];
+    # drivers = [ pkgs.hplip ];
     listenAddresses = [ "*:631" ];
     allowFrom = [ "all" ];
     browsing = true;

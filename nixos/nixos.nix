@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     /etc/nixos/hardware-configuration.nix
+    /etc/nixos/cachix.nix
     ./audio.nix
     ./locale.nix
     ./gnome.nix
@@ -40,9 +41,12 @@
     libvirtd.enable = true;
   };
 
+  # fwupd
+  services.fwupd.enable = true;
+
   # SANE
   hardware.sane.enable = true;
-  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
+  # hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   # dconf
   programs.dconf.enable = true;

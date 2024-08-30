@@ -14,7 +14,7 @@
     # ../home-manager/helix.nix
     # ../home-manager/hyprland.nix
     ../home-manager/lf.nix
-    ../home-manager/neofetch.nix
+    # ../home-manager/neofetch.nix
     ../home-manager/obs.nix
     ../home-manager/packages.nix
     ../home-manager/sh.nix
