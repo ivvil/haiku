@@ -16,9 +16,9 @@
       qogir-icon-theme
       gnome-extension-manager
       nautilus-open-any-terminal
-      gnome.nautilus-python
+      nautilus-python
       wl-clipboard
-      gnome.gnome-tweaks
+      gnome-tweaks
     ];
 
     #   gnome.excludePackages =

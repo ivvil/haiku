@@ -27,7 +27,7 @@
 
   environment.systemPackages = with pkgs;
   with gnome; [
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     loupe
     adwaita-icon-theme
     nautilus
