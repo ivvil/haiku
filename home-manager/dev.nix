@@ -22,5 +22,6 @@
     rust-analyzer
     rustfmt
     clippy
+    dotnet-sdk_8
   ];
 }

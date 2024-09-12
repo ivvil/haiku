@@ -16,8 +16,8 @@
     # gui
     (mpv.override {scripts = [mpvScripts.mpris];})
     libreoffice
-    spotify
-    spicetify-cli
+    # spotify
+    # spicetify-cli
     caprine-bin
     d-spy
     github-desktop

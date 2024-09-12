@@ -1,7 +1,7 @@
 {config, pkgs, ...}: {
   imports = [
     # ../home-manager/nvim.nix
-    ../home-manager/ags.nix
+    # ../home-manager/ags.nix
     ../home-manager/blackbox.nix
     ../home-manager/browser.nix
     # ../home-manager/bspwm.nix
@@ -18,7 +18,7 @@
     ../home-manager/obs.nix
     ../home-manager/packages.nix
     ../home-manager/sh.nix
-    # ../home-manager/spotify.nix
+    ../home-manager/spotify.nix
     ../home-manager/starship.nix
     ../home-manager/stm.nix
     # ../home-manager/sway.nix
